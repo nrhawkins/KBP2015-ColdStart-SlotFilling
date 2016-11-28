@@ -13,17 +13,17 @@ import java.util.regex.Pattern;
 
 //import org.apache.commons.io.IOUtils;
 
-import edu.knowitall.collection.immutable.Interval;
-import edu.stanford.nlp.ling.CoreAnnotations.*;
-import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.pipeline.Annotation;
-import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+//import edu.knowitall.collection.immutable.Interval;
+//import edu.stanford.nlp.ling.CoreAnnotations.*;
+//import edu.stanford.nlp.ling.CoreLabel;
+//import edu.stanford.nlp.pipeline.Annotation;
+//import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 //import edu.stanford.nlp.time.TimeAnnotations.TimexAnnotation;
-import edu.stanford.nlp.time.Timex;
-import edu.stanford.nlp.util.CoreMap;
+//import edu.stanford.nlp.time.Timex;
+//import edu.stanford.nlp.util.CoreMap;
 //import edu.stanford.nlp.dcoref.CorefChain;
-import edu.stanford.nlp.dcoref.CorefChain.CorefMention;
-import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
+//import edu.stanford.nlp.dcoref.CorefChain.CorefMention;
+//import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
 //import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefClusterIdAnnotation;
 //import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefGraphAnnotation;
 //import edu.stanford.nlp.ling.CoreAnnotations.*;
@@ -33,7 +33,7 @@ import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
 //import edu.stanford.nlp.time.TimeAnnotations.TimexAnnotation;
 //import edu.stanford.nlp.time.Timex;
 //import edu.stanford.nlp.util.CoreMap;
-import edu.stanford.nlp.util.IntTuple;
+//import edu.stanford.nlp.util.IntTuple;
 //import edu.stanford.nlp.util.Pair;
 //import edu.washington.cs.knowitall.kbp2014.multir.slotfiller.util.DocUtils;
 
@@ -43,11 +43,11 @@ public class StanfordAnnotatorHelperMethods {
 	
 	//private final StanfordCoreNLP basicPipeline;
 	//private final  StanfordCoreNLP suTimePipeline;
-	private final  StanfordCoreNLP corefPipeline;
+	//private final  StanfordCoreNLP corefPipeline;
 	//private final StanfordCoreNLP chinesePipeline;
 	//private String filePath = "/homes/gws/jgilme1/docs/";
-	private Map<String,Annotation> corefAnnotationMap;
-	private Map<String,Annotation> suTimeAnnotationMap;
+	//private Map<String,Annotation> corefAnnotationMap;
+	//private Map<String,Annotation> suTimeAnnotationMap;
 	
 	
 	public StanfordAnnotatorHelperMethods(){
@@ -71,7 +71,7 @@ public class StanfordAnnotatorHelperMethods {
 	    //corefProps.put("clean.allowflawedxml", "true");
 	    //corefProps.put("ner.useSUTime", "false");
 	    //clean all xml tags
-		this.corefPipeline = new StanfordCoreNLP(corefProps);
+		//this.corefPipeline = new StanfordCoreNLP(corefProps);
         
 		
 		/*Properties chineseProps = new Properties(); 	    
@@ -102,14 +102,14 @@ public class StanfordAnnotatorHelperMethods {
 		this.chinesePipeline = new StanfordCoreNLP(chineseProps);
         */
 		
-		corefAnnotationMap = new HashMap<String,Annotation>();
-		suTimeAnnotationMap = new HashMap<String,Annotation>();
+		//corefAnnotationMap = new HashMap<String,Annotation>();
+		//suTimeAnnotationMap = new HashMap<String,Annotation>();
 
 	}
 	
 	//public StanfordCoreNLP getBasicPipeline(){return basicPipeline;}
 	//public StanfordCoreNLP getChinesePipeline(){return chinesePipeline;}
-	public StanfordCoreNLP getCorefPipeline(){return corefPipeline;}
+	//public StanfordCoreNLP getCorefPipeline(){return corefPipeline;}
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		StanfordAnnotatorHelperMethods sh = new StanfordAnnotatorHelperMethods();
@@ -125,8 +125,8 @@ public class StanfordAnnotatorHelperMethods {
 	}
 	
 	public void clearHashMaps(){
-		corefAnnotationMap.clear();
-		suTimeAnnotationMap.clear();
+		//corefAnnotationMap.clear();
+		//suTimeAnnotationMap.clear();
 	}
 	
 	/*public void runSuTime(String docID) throws FileNotFoundException, IOException{
@@ -166,7 +166,7 @@ public class StanfordAnnotatorHelperMethods {
 	}
 	*/
 	
-	private String normalizeTimex(Timex t){
+	/*private String normalizeTimex(Timex t){
 		if(t.timexType() == "DATE"){
 	      String timexString = t.value();
 	      if (timexString == null) return "";
@@ -176,7 +176,7 @@ public class StanfordAnnotatorHelperMethods {
 		else{
 			return "";
 		}
-	}
+	}*/
 	
 	private String normalizeDate(String dateString){
 		  String formattedString = null;
@@ -282,7 +282,7 @@ public class StanfordAnnotatorHelperMethods {
 * @param position
 * @return
 */
-private Interval getNamedEntityAtPosition(Annotation annotatedDocument, IntTuple position, KBPQueryEntityType entityType){
+/*private Interval getNamedEntityAtPosition(Annotation annotatedDocument, IntTuple position, KBPQueryEntityType entityType){
 
   return Interval.open(0, 1);
 }
@@ -299,7 +299,7 @@ private CoreLabel getTokenBeginningAtByteOffset(Annotation annotatedDocument, In
     }
   }
   return null;
-}
+} */
 
 /**
 * Given the information from a CorefMention determine the byte offsets
@@ -311,7 +311,7 @@ private CoreLabel getTokenBeginningAtByteOffset(Annotation annotatedDocument, In
 * @return
 */
 
-private Interval getCharIntervalFromCorefMention(Annotation document, Integer sentNum, Integer startIndex, Integer endIndex){
+/*private Interval getCharIntervalFromCorefMention(Annotation document, Integer sentNum, Integer startIndex, Integer endIndex){
 
   List<CoreMap> sentences = document.get(SentencesAnnotation.class);
   CoreMap sentence = sentences.get(sentNum-1);
@@ -324,7 +324,7 @@ private Interval getCharIntervalFromCorefMention(Annotation document, Integer se
 
   return Interval.closed(spanningTokens.get(0).beginPosition(),spanningTokens.get(spanningTokens.size()-1).endPosition());
 
-}
+} */
 
 /*public Interval getIntervalOfKBPEntityMention(String kbpEntityString, Interval originalInterval, String docID){
 
@@ -380,7 +380,7 @@ private Interval getCharIntervalFromCorefMention(Annotation document, Integer se
   }
   */
 
-  public Boolean inSameCorefChainKBPEntityMentionAndQueryName(String kbpEntityString, String arg1String, Interval originalInterval, Annotation document){
+  /*public Boolean inSameCorefChainKBPEntityMentionAndQueryName(String kbpEntityString, String arg1String, Interval originalInterval, Annotation document){
 
     // Search through each coref chain looking for arg1 (specified by originalInterval) and kbpEntityString   
 
@@ -433,6 +433,6 @@ private Interval getCharIntervalFromCorefMention(Annotation document, Integer se
 
     return inSameCorefChain;
   }
-
+  */
 
 }

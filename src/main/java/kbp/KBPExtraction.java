@@ -1,12 +1,13 @@
 package kbp;
 
 //import edu.washington.multirframework.data.Argument;
-import extractor.NERTag;
-import java.util.List;
+//import extractor.NERTag;
+//import java.util.List;
 
 
 public class KBPExtraction {
 
+   /*
 	private Argument arg1;
 	private Argument arg2;
 	private String rel;
@@ -19,7 +20,7 @@ public class KBPExtraction {
 	private Integer sentNum;
 	private Integer arg1BestMentionSentNum;
 	private Integer arg2BestMentionSentNum;
-	private List<NERTag> ners;
+	//private List<NERTag> ners;
 	
 	@Override
 	public String toString() {
@@ -53,10 +54,14 @@ public class KBPExtraction {
 		this.arg1BestMentionSentNum = arg1BestMentionSentNum;
 		this.arg2BestMentionSentNum = arg2BestMentionSentNum;
 		this.ners = ners;
+		
+		
 	}
 	
-	
-	
+	*/
+ 
+    /* 
+    	
 	public Argument getArg1() {
 		return arg1;
 	}
@@ -135,6 +140,7 @@ public class KBPExtraction {
 	public void setNers(List<NERTag> ners) {
 		this.ners = ners;
 	}
-	
+
+   */	
 }
 

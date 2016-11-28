@@ -1,8 +1,8 @@
-package tac;
+package kbp;
 
 import java.util.List;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import edu.stanford.nlp.util.Interval;
+//import org.apache.commons.lang.builder.HashCodeBuilder;
+//import edu.stanford.nlp.util.Interval;
 
 /**
  * Argument represents an offset interval
@@ -31,6 +31,8 @@ public class Argument {
 		this.endOffset = a.endOffset;
 		this.argName = a.argName;
 	}
+	
+	/*
 	public boolean intersectsWithList(List<Argument> args) {
 		
 		for(Argument arg: args){
@@ -40,6 +42,7 @@ public class Argument {
 		}
 		return false;
 	}
+	
 	private boolean intersects (Argument other){
 		Interval<Integer> thisInterval = Interval.toInterval(this.startOffset,this.endOffset);
 		Interval<Integer> otherInterval = Interval.toInterval(other.startOffset, other.endOffset);
@@ -50,6 +53,7 @@ public class Argument {
 			return false;
 		}
 	}
+	*/
 	
 	public boolean containedInList(List<Argument> args) {
 		
@@ -98,10 +102,12 @@ public class Argument {
 		}
 	}
 	
+	/*
 	@Override
 	public int hashCode(){
 		return new HashCodeBuilder(17,19).append(this.startOffset).append(this.endOffset).append(this.argName).toHashCode();
 	}
+	*/
 	
 	public static Argument deserialize(String s){
 		String [] values = s.split("\t");
